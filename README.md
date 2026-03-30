@@ -31,6 +31,7 @@ git clone https://github.com/agusadhitama/password-analyzer.git
 ```
 2. Buka file index.html di browser favorit kamu.
 3. Mulai ketik password atau klik Generate Secure Password.
+4. Atau klik link ini : https://agusadhitama.github.io/password-analyzer/
 
 ---
 
