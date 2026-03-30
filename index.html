@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cyber Password Analyzer PRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ================== BASE & RESET ================== */
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif;}
+body {height:100vh;background:#020617;color:white;overflow:hidden;display:flex;justify-content:center;align-items:center;}
+canvas#particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+
+/* ================== CONTAINER ================== */
+.container {
+  width:380px;padding:30px;border-radius:20px;
+  backdrop-filter:blur(20px);background:rgba(255,255,255,0.05);
+  box-shadow:0 0 30px rgba(0,255,255,0.2);text-align:center;
+  transition:0.4s;position:relative;z-index:1;
+}
+.container:hover {transform:translateY(-5px) scale(1.01);}
+
+/* ================== TITLE ================== */
+h1 {
+  margin-bottom:20px;color:cyan;
+  text-shadow:0 0 5px cyan,0 0 15px cyan,0 0 25px cyan;letter-spacing:2px;
+}
+
+/* ================== INPUT ================== */
+input#password,input#generated {
+  width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;outline:none;background:#020617;color:white;
+  transition:0.3s;position:relative;
+}
+input#password:focus {animation:glitch 0.3s infinite;box-shadow:0 0 10px cyan;}
+
+/* ================== STRENGTH BAR ================== */
+#strength-bar {width:100%;height:10px;background:#1e293b;border-radius:10px;margin-top:10px;overflow:hidden;}
+#strength {height:100%;width:0%;border-radius:10px;transition:0.4s ease;}
+
+/* ================== TEXT STATUS ================== */
+#strength-text {margin-top:10px;font-size:14px;letter-spacing:1px;}
+
+/* ================== BUTTON ================== */
+button {margin-top:15px;padding:12px;width:100%;border:none;border-radius:10px;background:cyan;color:black;cursor:pointer;font-weight:bold;transition:0.3s;}
+button:hover {background:#22d3ee;transform:scale(1.05);box-shadow:0 0 15px cyan;}
+button:active {transform:scale(0.95);}
+.copy-btn {width:50px;background:lime;color:black;}
+.copy-btn:hover {background:#4ade80;box-shadow:0 0 10px lime;}
+
+/* ================== GENERATED BOX ================== */
+.generated-box {margin-top:15px;display:flex;gap:5px;}
+.generated-box input {flex:1;}
+
+/* ================== CREDIT ================== */
+.credit {position:fixed;bottom:15px;width:100%;text-align:center;font-size:12px;color:#94a3b8;opacity:0.6;transition:0.3s;}
+.credit span {color:cyan;text-shadow:0 0 8px cyan;}
+.credit:hover {opacity:1;}
+
+/* ================== ANIMATIONS ================== */
+@keyframes glitch {
+  0%{transform:translateX(0);}
+  20%{transform:translateX(-2px);}
+  40%{transform:translateX(2px);}
+  60%{transform:translateX(-1px);}
+  80%{transform:translateX(1px);}
+  100%{transform:translateX(0);}
+}
+
+/* ================== RESPONSIVE ================== */
+@media(max-width:420px){.container{width:90%;padding:20px;}}
+</style>
+
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="container">
+  <h1>🔐 CYBER ANALYZER PRO</h1>
+
+  <input type="password" id="password" placeholder="Enter Password">
+  <div id="strength-bar"><div id="strength"></div></div>
+  <p id="strength-text">Type password...</p>
+
+  <button onclick="generatePassword()">⚡ Generate Secure Password</button>
+  <div class="generated-box">
+    <input type="text" id="generated" readonly>
+    <button class="copy-btn" onclick="copyPassword()">📋</button>
+  </div>
+</div>
+
+<div class="credit">
+  ⚡ Created by 
+  <span><a href="https://github.com/agusadhitama" target="_blank">Agus Satria Adhitama</a></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
